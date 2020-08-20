@@ -1,0 +1,16 @@
+version: '3.3'
+volumes:
+  postgres_volume:
+
+services:
+  database:
+    image: postgres:9.6
+    user: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_EXTENSIONS=citext
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
